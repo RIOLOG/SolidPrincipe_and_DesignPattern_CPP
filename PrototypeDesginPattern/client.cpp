@@ -1,3 +1,10 @@
+/*The Prototype Design Pattern is a creational design pattern that allows 
+you to create new objects by copying or cloning existing 
+objects (prototypes), rather than creating new instances from scratch. 
+This pattern is particularly useful when object creation is costly, 
+or when you want to avoid subclassing in a hierarchy.*/
+
+
 #include<iostream>
 #include<unordered_map>
 #include<string>
