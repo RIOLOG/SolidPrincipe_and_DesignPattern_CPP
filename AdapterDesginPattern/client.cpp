@@ -1,3 +1,10 @@
+/*The Adapter Design Pattern is a structural design pattern that allows 
+objects with incompatible interfaces to work together. 
+The Adapter pattern acts as a bridge between two objects or systems by 
+converting one interface into another, making it possible for systems 
+or classes that otherwise wouldn't be able to interact to communicate 
+effectively. */
+
 #include<iostream>
 #include<memory>
 using namespace std;
