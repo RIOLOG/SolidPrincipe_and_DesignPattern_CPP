@@ -8,7 +8,7 @@ class GameSetting {
     int _health;
     int _moves;
 
-    GameSetting(): _health(70), _moves(2) {}
+    GameSetting(): _health(70), _moves(2) {}     //PRIVATE CONSTRUCTOR
 
 
     public:
