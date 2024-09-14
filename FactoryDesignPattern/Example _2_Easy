@@ -1,0 +1,56 @@
+#include <iostream>
+using namespace std;
+
+// Define the Shape interface
+class Shape {
+public:
+    virtual void draw() = 0;  // Pure virtual function
+    virtual ~Shape() {}       // Virtual destructor
+};
+
+// Concrete Classes implementing the Shape interface
+class Circle : public Shape {
+public:
+    void draw() override {
+        cout << "Drawing Circle" << endl;
+    }
+};
+
+class Rectangle : public Shape {
+public:
+    void draw() override {
+        cout << "Drawing Rectangle" << endl;
+    }
+};
+
+// Factory Class to generate objects of different types
+class ShapeFactory {
+public:
+    Shape* createShape(const string& shapeType) {
+        if (shapeType == "Circle")
+            return new Circle();
+        else if (shapeType == "Rectangle")
+            return new Rectangle();
+        else
+            return nullptr;  // Return nullptr if shapeType is unknown
+    }
+};
+
+// Client code to use the factory
+int main() {
+    ShapeFactory factory;
+
+    // Create and draw a Circle
+    Shape* shape1 = factory.createShape("Circle");
+    if (shape1) shape1->draw();
+
+    // Create and draw a Rectangle
+    Shape* shape2 = factory.createShape("Rectangle");
+    if (shape2) shape2->draw();
+
+    // Clean up
+    delete shape1;
+    delete shape2;
+
+    return 0;
+}
