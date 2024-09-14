@@ -1,69 +1,37 @@
-#include<iostream>
-#include<string>
-
+#include <bits/stdc++.h>
 using namespace std;
 
-class GameSetting {
-    static GameSetting* _instance;
-    int _health;
-    int _moves;
+class Singleton {
+    static Singleton* _instance;  // Static instance variable
+    Singleton() {}  // Private constructor
 
-    GameSetting(): _health(70), _moves(2) {}     //PRIVATE CONSTRUCTOR
-
-
-    public:
-
-        static GameSetting* getInstance(){
-            if (_instance == NULL){
-                _instance = new GameSetting();
-            }
-            return _instance;
+public:
+    // Static method to get the instance of the class
+    static Singleton* getInstance() {
+        if (_instance == nullptr) {
+            _instance = new Singleton();
         }
-
-        void setHealth(int health)
-        {
-            _health = health;
-        }
-
-        int getHealth()
-        {
-            return _health;
-        }
-
-        void display()
-        {
-            cout<<"Health is"<<":"<<_health<<endl;
-            cout<<"Moves is"<<":"<<_moves<<endl;
-        }
+        return _instance;
+    }
 };
 
-//defining it outside the class because to assign it memory
-//because it is static object:
- GameSetting* GameSetting:: _instance = NULL;
+// Initialize the static member
+Singleton* Singleton::_instance = nullptr;
 
-
-//again making the instance(object) of class:
-void makeInstance()
-{
-    GameSetting* setting = GameSetting::getInstance();
-    setting -> display();
-
-    // cout<<"object memory for 2nd instance "<<setting<<endl;  -> 0x173eeb0
+void makeInstance() {
+    Singleton* single = Singleton::getInstance();
+    cout << "Address of Singleton object in makeInstance: " << single << endl;
 }
 
+int main() {
+    Singleton* mingle = Singleton::getInstance();
+    cout << "Address of Singleton object in main: " << mingle << endl;
 
-int main()
-{
-    GameSetting* setting = GameSetting::getInstance();
-    setting -> display();
+    makeInstance();  // This will show the same address
 
-    // cout<<"object memory for 1st instance "<<setting<<endl;  -> 0x173eeb0
-
-    setting -> setHealth(80);
-
-    makeInstance();
     return 0;
 }
+
 
 //we have created two instance of same class
 //but we have same memory assigned to both.
