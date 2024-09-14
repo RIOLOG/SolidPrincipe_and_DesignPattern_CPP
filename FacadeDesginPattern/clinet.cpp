@@ -1,3 +1,9 @@
+/*The Facade Design Pattern is a structural design pattern that 
+provides a simplified interface to a complex subsystem, making it easier 
+for clients to interact with it. The idea is to hide the complexities of 
+the system by providing a higher-level interface, or "facade," that 
+interacts with multiple classes behind the scenes.*/
+
 #include<iostream>
 using namespace std;
 
